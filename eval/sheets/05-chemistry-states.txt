@@ -1,0 +1,15 @@
+Science Grade 6 - States of Matter Quiz
+
+Matter exists in three principal states: solid, liquid and gas. In a solid, particles vibrate about fixed positions; in a liquid, particles are closely packed but can move past one another; in a gas, particles move rapidly and randomly with large spaces between them. Water melts at 0 degrees Celsius and boils at 100 degrees Celsius at standard atmospheric pressure.
+
+Choose the correct answer for questions 1 to 3.
+
+1. In which state are particles arranged in fixed positions?
+   A. solid    B. liquid    C. gas
+2. At what temperature does water boil at standard atmospheric pressure?
+   A. 0 degrees Celsius    B. 50 degrees Celsius    C. 100 degrees Celsius    D. 212 degrees Celsius
+3. Which process changes a liquid into a gas?
+   A. condensation    B. evaporation    C. freezing    D. melting
+
+4. Describe the movement of particles in a gas.
+5. Ice cubes are placed in a glass of juice at room temperature. Predict and explain what happens to the ice.

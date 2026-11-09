@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plain Page: every worksheet, readable</title>
+    <meta name="description" content="Take a photo of a worksheet. Plain Page rebuilds it as a page a screen reader can read, in plain English, and checks that no number or key term was lost." />
+    <meta name="theme-color" content="#1f6b52" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="top">
+      <a class="wordmark" href="/" aria-label="Plain Page, start over"><span class="mark" aria-hidden="true"></span>Plain Page</a>
+      <p class="top-note">Worksheets rebuilt for every reader. Checked, not guessed.</p>
+    </header>
+
+    <main id="main">
+      <!-- 1. Add a worksheet -->
+      <section id="start" class="screen" aria-labelledby="start-title">
+        <div class="hero">
+          <h1 id="start-title">A worksheet a screen reader can't read is a lesson someone misses.</h1>
+          <p class="lede">
+            Take a photo of a worksheet. Plain Page rebuilds it as a real page: headings a screen reader can jump between,
+            answer boxes with labels, large clear type, plain English, and read-aloud. Then it checks that every number and key term made it across.
+          </p>
+        </div>
+
+        <div class="add">
+          <label class="drop" id="drop">
+            <input id="file" type="file" accept="application/pdf,image/*" multiple class="visually-hidden" />
+            <span class="drop-title">Add a worksheet</span>
+            <span class="drop-sub">A photo of each page, or a PDF. Drop it here or choose files.</span>
+          </label>
+          <div class="add-row">
+            <label class="btn" for="camera">Take a photo<input id="camera" type="file" accept="image/*" capture="environment" multiple class="visually-hidden" /></label>
+            <button class="btn" id="paste-open" type="button" aria-expanded="false" aria-controls="paste-box">Paste the text</button>
+            <button class="btn primary" id="sample" type="button">Try a sample worksheet</button>
+          </div>
+          <div id="paste-box" class="paste" hidden>
+            <label for="paste-text">The worksheet's text</label>
+            <textarea id="paste-text" rows="8"></textarea>
+            <button class="btn primary" id="paste-go" type="button">Rebuild this worksheet</button>
+          </div>
+          <p id="start-status" class="status" role="status" aria-live="polite"></p>
+        </div>
+
+        <ul class="promises">
+          <li><strong>Read on your device.</strong> Photos are read in your browser and never uploaded. Names and contact details are blacked out before any text is sent.</li>
+          <li><strong>Nothing lost.</strong> Every number and key term is checked against the worksheet. If the plain version drops one, you see the original wording instead.</li>
+          <li><strong>Yours to keep.</strong> Save the rebuilt page as one file that works offline, on any device, with any screen reader.</li>
+        </ul>
+      </section>
+
+      <!-- 2. Rebuilding: the photo on one side, the page assembling on the other -->
+      <section id="build" class="screen" aria-labelledby="build-title" hidden>
+        <h2 id="build-title" class="visually-hidden">Rebuilding your worksheet</h2>
+        <div class="build-grid">
+          <figure class="source" id="source">
+            <figcaption>Before: what a screen reader finds</figcaption>
+            <div class="source-frame" id="source-frame"></div>
+            <p class="sr-before" id="sr-before"></p>
+          </figure>
+          <div class="build-side">
+            <div class="meter" aria-live="polite">
+              <div><span class="meter-label">Reading level</span> <span class="meter-value" id="meter-grade">–</span></div>
+              <div><span class="meter-label">Facts checked</span> <span class="meter-value" id="meter-facts">0</span></div>
+            </div>
+            <ol class="build-steps" id="steps">
+              <li data-step="ocr">Reading the photo on your device</li>
+              <li data-step="blank">Blacking out names and contact details</li>
+              <li data-step="read">Rebuilding the page in plain English</li>
+              <li data-step="check">Checking every number and key term</li>
+            </ol>
+            <p id="build-status" class="status" role="status" aria-live="polite"></p>
+            <div class="assembly" id="assembly" aria-hidden="true"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. The rebuilt page -->
+      <section id="result" class="screen" aria-labelledby="page-title" hidden>
+        <div class="toolbar" role="toolbar" aria-label="Reading options">
+          <div class="seg" role="group" aria-label="Wording">
+            <button type="button" data-wording="plain" aria-pressed="true">Plain English</button>
+            <button type="button" data-wording="original" aria-pressed="false">As printed</button>
+          </div>
+          <div class="seg" role="group" aria-label="Text size">
+            <button type="button" id="size-down">A−<span class="visually-hidden"> smaller text</span></button>
+            <button type="button" id="size-up">A+<span class="visually-hidden"> larger text</span></button>
+          </div>
+          <label class="pick">Colours
+            <select id="theme">
+              <option value="paper">Paper</option>
+              <option value="tint">Soft tint</option>
+              <option value="contrast">High contrast</option>
+              <option value="night">Night</option>
+            </select>
+          </label>
+          <button type="button" class="btn small" id="spacing" aria-pressed="false">Wide spacing</button>
+          <button type="button" class="btn small" id="read-all">Read aloud</button>
+          <button type="button" class="btn small primary" id="save">Save offline copy</button>
+        </div>
+
+        <div class="result-grid">
+          <article id="page" class="page" data-wording="plain"></article>
+          <aside class="checks" aria-labelledby="checks-title">
+            <h2 id="checks-title">What was checked</h2>
+            <dl class="scores" id="scores"></dl>
+            <p class="checks-note">Plain Page compares each plain sentence with the worksheet. A block is shown in plain English only when every number and key term survived.</p>
+            <h3>What a screen reader hears now</h3>
+            <ol class="sr-after" id="sr-after"></ol>
+            <button type="button" class="btn quiet" id="restart">Rebuild another worksheet</button>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <p>Plain Page rewrites wording; it never answers questions. Always check important instructions with the teacher. English worksheets only. <a href="https://github.com/zuhairhalawa/plainpage">Source code</a>.</p>
+    </footer>
+    <script type="module" src="/src/ui/main.ts"></script>
+  </body>
+</html>
