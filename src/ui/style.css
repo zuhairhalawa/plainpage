@@ -792,3 +792,19 @@ textarea.answer {
     padding: 0;
   }
 }
+
+@media (max-width: 600px) {
+  .glossary {
+    grid-template-columns: 1fr;
+  }
+  .glossary dd {
+    margin-bottom: 0.4rem;
+  }
+  .toolbar {
+    position: static;
+  }
+  .blk {
+    padding-right: 1rem;
+    padding-top: 3.2rem;
+  }
+}
