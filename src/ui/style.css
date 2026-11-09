@@ -279,9 +279,9 @@ main {
 .sr-before {
   margin: 0.75rem 0 0;
   padding: 0.75rem 1rem;
-  border-left: 4px solid var(--flag);
+  border: 1.5px solid color-mix(in srgb, var(--flag) 45%, transparent);
   background: var(--flag-soft);
-  border-radius: 0 10px 10px 0;
+  border-radius: 10px;
 }
 .meter {
   display: grid;
@@ -357,7 +357,7 @@ main {
   background: var(--paper);
   border-radius: 10px;
   padding: 0.55rem 0.8rem;
-  border-left: 5px solid var(--accent);
+  border: 1.5px solid var(--line);
   display: flex;
   flex-wrap: wrap;
   gap: 0.3rem 0.5rem;
@@ -365,17 +365,26 @@ main {
   animation: land 0.35s ease-out;
 }
 .piece.heading {
-  border-left-color: var(--ink);
+  background: transparent;
+  border-color: transparent;
   font-weight: 700;
 }
 .piece.fallback {
-  border-left-color: var(--flag);
+  border-color: color-mix(in srgb, var(--flag) 55%, transparent);
+  background: var(--flag-soft);
 }
+/* The part's kind as a small label; its colour carries the state. */
 .piece-kind {
   font: 600 0.75rem/1 var(--display);
   text-transform: capitalize;
-  color: var(--muted);
+  color: var(--accent);
   min-width: 4.5rem;
+}
+.piece.heading .piece-kind {
+  color: var(--muted);
+}
+.piece.fallback .piece-kind {
+  color: var(--flag);
 }
 .piece-text {
   flex: 1 1 14rem;
