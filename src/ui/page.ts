@@ -3,6 +3,7 @@
  * as labelled groups with answer fields, key words explained in place, and
  * both wordings (plain and as printed) so the reader can switch.
  */
+import { factText } from '../check/verify.ts';
 import type { CheckedBlock, CheckedPage } from '../types.ts';
 
 function el<K extends keyof HTMLElementTagNameMap>(tag: K, cls?: string, text?: string): HTMLElementTagNameMap[K] {
@@ -34,7 +35,9 @@ function withTerms(parent: HTMLElement, text: string, terms: string[]): void {
 function wordings(b: CheckedBlock, tag: 'p' | 'span' = 'p'): HTMLElement[] {
   const terms = b.keyTerms.map((k) => k.term);
   const orig = el(tag, 'w-orig');
-  withTerms(orig, b.original.replace(/^\s*(?:q(?:uestion)?\s*)?\(?[0-9]{1,2}[a-z]?[.):]\s*/i, ''), terms);
+  // As printed, minus the number and the choices, which the page shows on their own.
+  const printed = b.kind === 'question' ? factText(b.original, b.number, b.answer.choices).replace(/\s+/g, ' ').trim() : b.original;
+  withTerms(orig, printed.replace(/^\s*(?:q(?:uestion)?\s*)?\(?[0-9]{1,2}[a-z]?[.):]\s*/i, ''), terms);
   if (!b.plainOk) {
     orig.classList.add('w-both');
     return [orig];
@@ -60,7 +63,7 @@ function checkNote(b: CheckedBlock): HTMLElement | null {
   }
   if (!b.kept.length) return null;
   const p = el('p', 'check-note');
-  p.append(el('span', 'visually-hidden', 'Checked and kept: '));
+  p.append(el('span', 'kept-label', 'Checked and kept:'));
   for (const k of b.kept) p.append(el('span', 'chip', k));
   return p;
 }
@@ -115,9 +118,12 @@ function answerField(b: CheckedBlock, label: string): HTMLElement | null {
 export function renderPage(root: HTMLElement, page: CheckedPage): void {
   root.replaceChildren();
   const blocks = [...page.blocks];
-  const first = blocks[0]?.kind === 'heading' ? blocks.shift() : undefined;
+  // The first heading is the page title only when it really is the title; otherwise it stays a section heading.
+  const squash = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '');
+  const firstIsTitle = blocks[0]?.kind === 'heading' && !!page.title && squash(blocks[0].original).includes(squash(page.title).slice(0, 24));
+  const first = firstIsTitle ? blocks.shift() : undefined;
   const head = el('header', 'page-head');
-  const h1 = el('h1', undefined, (first?.original ?? page.title).replace(/\s*\n\s*/g, ' — '));
+  const h1 = el('h1', undefined, (first?.original ?? (page.title || 'Worksheet')).replace(/\s*\n\s*/g, ' — '));
   h1.id = 'page-title';
   h1.tabIndex = -1;
   const questions = blocks.filter((b) => b.kind === 'question').length;

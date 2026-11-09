@@ -17,7 +17,9 @@ fieldset{min-width:0}legend{padding:0 .25rem;font-weight:700}.qnum{display:block
 input.answer,textarea.answer{width:100%;box-sizing:border-box;font:inherit;padding:.5rem;border:2px solid var(--ink);border-radius:8px;margin-top:.5rem}
 .choice{display:flex;gap:.6rem;align-items:center;padding:.35rem 0}.choice input{width:1.3rem;height:1.3rem}.choice-letter{font-weight:700}
 .check-note{font-size:.95rem;color:var(--muted)}.fallback{color:var(--flag)}.chip{display:inline-block;margin:0 .3rem .3rem 0;padding:0 .5rem;border-radius:99px;background:#e3f1ea}
-.say{float:right;margin-top:-.25rem}
+.blk{position:relative;padding-right:3.4rem}.say{position:absolute;top:.6rem;right:.6rem}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+fieldset.blk>legend{float:left;width:100%;padding:0}fieldset.blk>legend+*{clear:both}.kept-label{margin-right:.3rem}
 button{font:inherit;font-size:1rem;padding:.4rem .8rem;border-radius:8px;border:2px solid var(--ink);background:#fff;color:var(--ink);cursor:pointer}
 :focus-visible{outline:4px solid var(--focus);outline-offset:2px}
 [data-wording=plain] .w-orig:not(.w-both){display:none}[data-wording=original] .w-plain{display:none}

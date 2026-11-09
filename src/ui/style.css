@@ -20,6 +20,10 @@
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 body {
   margin: 0;
   background: var(--desk);
@@ -560,9 +564,19 @@ h2.sec {
 fieldset.blk {
   min-width: 0;
 }
-legend {
-  padding: 0 0.3rem;
+/* The question sits inside the box, not on its border. */
+fieldset.blk > legend {
+  float: left;
+  width: 100%;
+  padding: 0;
   font-weight: 700;
+}
+fieldset.blk > legend + * {
+  clear: both;
+}
+fieldset.blk > legend ~ .answer,
+fieldset.blk > legend ~ .choices {
+  clear: both;
 }
 .qnum {
   display: block;
@@ -636,6 +650,9 @@ textarea.answer {
   font-size: 0.72em;
   color: var(--p-muted);
   margin-top: 0.6rem !important;
+}
+.kept-label {
+  margin-right: 0.3rem;
 }
 .check-note .chip {
   margin: 0 0.3rem 0.3rem 0;
