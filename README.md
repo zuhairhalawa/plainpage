@@ -6,6 +6,8 @@ Plain Page turns a photo of a printed worksheet into a real, accessible web page
 
 **Try it:** https://plainpage-avy.pages.dev (press "Try a sample worksheet")
 
+**Demo video (1:43):** https://youtu.be/tjmnPDrS6CM
+
 ![The rebuilt page](docs/media/03-page.png)
 
 ## The barrier
