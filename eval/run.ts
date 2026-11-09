@@ -17,7 +17,8 @@ interface Expected {
   answers: Record<string, string[]>;
 }
 
-const dir = new URL('./sheets/', import.meta.url);
+const set = process.argv[3] ?? 'sheets';
+const dir = new URL(`./${set}/`, import.meta.url);
 const runs = Number(process.argv[2] ?? 1);
 const vars = loadVars();
 const rows: Record<string, unknown>[] = [];
@@ -32,7 +33,9 @@ for (const file of readdirSync(dir).filter((f) => f.endsWith('.txt')).sort()) {
     const questions = page.blocks.filter((b) => b.kind === 'question');
     const shown = page.blocks.filter((b) => b.kind !== 'heading');
     // Independent re-check: facts lost on what the reader actually sees (plain when it passed, else as printed).
-    const lostOnPage = shown.reduce((n, b) => n + checkFacts(b.original, b.plainOk ? b.plain : b.original, b.keyTerms.map((k) => k.term)).missing.length, 0);
+    // What the reader sees for a block: its printed number, the wording, and the answer choices.
+    const seen = (b: (typeof shown)[number]) => [b.number ?? '', b.plainOk ? b.plain : b.original, ...b.answer.choices].join(' \n ');
+    const lostOnPage = shown.reduce((n, b) => n + checkFacts(b.original, seen(b), b.keyTerms.map((k) => k.term)).missing.length, 0);
     const factsTotal = shown.reduce((n, b) => n + b.kept.length + b.missing.length, 0);
     const caught = shown.filter((b) => !b.plainOk && b.plain.trim()).map((b) => `${b.number ?? b.kind}: ${b.missing.join(', ')}`);
     // Answer leaks: an expected answer word that the plain question adds but the printed question doesn't contain.
@@ -85,4 +88,4 @@ const summary = {
 };
 console.log('\nSUMMARY', JSON.stringify(summary));
 mkdirSync(new URL('./out/', import.meta.url), { recursive: true });
-writeFileSync(new URL('./out/results.json', import.meta.url), JSON.stringify({ summary, rows }, null, 1));
+writeFileSync(new URL(`./out/results-${set}.json`, import.meta.url), JSON.stringify({ summary, rows }, null, 1));

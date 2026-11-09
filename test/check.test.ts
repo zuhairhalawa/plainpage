@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { checkFacts, hasTerm, numbers, wordsToDigits } from '../src/check/facts.ts';
 import { gradeLevel, syllables } from '../src/check/readability.ts';
-import { verifyReading } from '../src/check/verify.ts';
+import { factText, verifyReading } from '../src/check/verify.ts';
 import type { Block, Reading } from '../src/types.ts';
 
 describe('numbers', () => {
@@ -15,6 +15,10 @@ describe('numbers', () => {
   });
   it('does not treat words inside other words as numbers', () => {
     expect(numbers('Someone has gone into the tent')).toEqual([]);
+  });
+  it('leaves "one" as a word but reads twenty-one', () => {
+    expect(numbers('particles move past one another')).toEqual([]);
+    expect(numbers('twenty-one days')).toEqual(['21']);
   });
 });
 
@@ -63,6 +67,18 @@ const block = (b: Partial<Block>): Block => ({
   answer: { type: 'short', choices: [] },
   keyTerms: [],
   ...b,
+});
+
+describe('factText', () => {
+  it('removes the printed number and whole choices only', () => {
+    const t = factText('2. At what temperature does water boil?\n A. 0 degrees Celsius B. 50 degrees Celsius C. 100 degrees Celsius', '2', [
+      '0 degrees Celsius',
+      '50 degrees Celsius',
+      '100 degrees Celsius',
+    ]);
+    expect(numbers(t)).toEqual([]);
+    expect(t).toContain('At what temperature');
+  });
 });
 
 describe('verifyReading', () => {

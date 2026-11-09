@@ -2,10 +2,11 @@
  * The facts a plain-English rewrite must keep: every number (with fractions,
  * decimals and percentages) and every key term. Number words count as numbers,
  * so "three" in the worksheet is kept by "3" in the rewrite, and the other way round.
+ * "One" is left alone: it is usually a word ("one another", "one of"), not a quantity.
  */
 
 const UNITS: Record<string, number> = {
-  zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10,
+  zero: 0, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10,
   eleven: 11, twelve: 12, thirteen: 13, fourteen: 14, fifteen: 15, sixteen: 16, seventeen: 17, eighteen: 18, nineteen: 19,
 };
 const TENS: Record<string, number> = { twenty: 20, thirty: 30, forty: 40, fifty: 50, sixty: 60, seventy: 70, eighty: 80, ninety: 90 };
@@ -15,9 +16,9 @@ const FRACTION_WORDS: Record<string, string> = { half: '1/2', 'a half': '1/2', '
 export function wordsToDigits(s: string): string {
   let out = s.replace(/\b(three quarters|one quarter|a quarter|one half|a half)\b/gi, (m) => FRACTION_WORDS[m.toLowerCase()] ?? m);
   out = out.replace(/\b(twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)(?:[- ](one|two|three|four|five|six|seven|eight|nine))?\b/gi, (_m, t: string, u?: string) =>
-    String((TENS[t.toLowerCase()] ?? 0) + (u ? (UNITS[u.toLowerCase()] ?? 0) : 0)),
+    String((TENS[t.toLowerCase()] ?? 0) + (u ? (u.toLowerCase() === 'one' ? 1 : (UNITS[u.toLowerCase()] ?? 0)) : 0)),
   );
-  out = out.replace(/\b(zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen)\b/gi, (m) =>
+  out = out.replace(/\b(zero|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen)\b/gi, (m) =>
     String(UNITS[m.toLowerCase()]),
   );
   return out;

@@ -1,0 +1,10 @@
+Computer Science Grade 9 - Binary Representation
+Name: __________________
+
+Computers store all data as binary digits (bits), each of which can take the value 0 or 1. A group of 8 bits is called a byte. An unsigned 8-bit binary number can represent denary (base 10) values from 0 to 255. Each position in a binary number has a place value that is a power of 2: from right to left, 1, 2, 4, 8, 16, 32, 64 and 128.
+
+1. How many bits are there in one byte?
+2. Convert the binary number 00001101 to denary.
+3. Convert the denary number 37 to an 8-bit binary number.
+4. What is the largest denary value that can be stored in 4 bits?
+5. Explain why computers use binary rather than denary. [2 marks]

@@ -41,13 +41,14 @@ function contentWords(text: string): { start: number; end: number }[] {
 }
 
 /** The part of a block whose facts the plain version must keep: without the printed number and the answer choices, which are shown as printed. */
-function factText(original: string, number: string | null, choices: string[]): string {
+export function factText(original: string, number: string | null, choices: string[]): string {
+  const re = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   let t = original;
-  if (number) {
-    const n = number.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    t = t.replace(new RegExp(`^\\s*(?:q(?:uestion)?\\s*)?\\(?${n}[.):]?\\s*`, 'i'), '');
+  if (number) t = t.replace(new RegExp(`^\\s*(?:q(?:uestion)?\\s*)?\\(?${re(number)}[.):]?\\s*`, 'i'), '');
+  // Whole choices only, longest first, so removing "0 degrees" never eats the end of "50 degrees".
+  for (const c of [...choices].sort((a, b) => b.length - a.length)) {
+    t = t.replace(new RegExp(`(?<![\\w.])${re(c.trim())}(?![\\w])`, 'gi'), ' ');
   }
-  for (const c of choices) t = t.split(c).join(' ');
   return t.replace(/(^|\s)\(?[A-Ha-h][.)](?=\s)/g, ' ');
 }
 

@@ -1,0 +1,10 @@
+Maths Year 7 - Area and Perimeter        Date: __________
+
+The perimeter of a shape is the total distance around its edges. The area of a rectangle is calculated by multiplying its length by its width, and is measured in square units such as cm2 or m2. The area of a triangle is half of the base multiplied by the perpendicular height.
+
+Q1. A rectangle is 12 cm long and 5 cm wide. Calculate its perimeter.
+Q2. Calculate the area of the same rectangle.
+Q3. A triangle has a base of 10 m and a perpendicular height of 6 m. Find its area.
+Q4. A square garden has an area of 49 m2. What is the length of one side?
+Q5. Which of these is the correct unit for area?
+    a) cm    b) cm2    c) cm3
