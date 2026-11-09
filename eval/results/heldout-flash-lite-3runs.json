@@ -1,0 +1,253 @@
+{
+ "summary": {
+  "runs": 12,
+  "worksheetDetection": "12/12",
+  "questions": "45/45",
+  "invented": 0,
+  "facts": 122,
+  "caughtByCheck": 4,
+  "lostOnPage": 0,
+  "leaks": 0,
+  "medianMs": 6013,
+  "gradeBefore": 4.9,
+  "gradeAfter": 5.5
+ },
+ "rows": [
+  {
+   "sheet": "h1-computing.txt",
+   "run": 1,
+   "model": "gemini-3.1-flash-lite",
+   "ms": 2764,
+   "worksheetOk": true,
+   "questionsExpected": 5,
+   "questionsFound": 5,
+   "invented": 0,
+   "factsTotal": 24,
+   "caughtByCheck": [
+    "text: 10"
+   ],
+   "lostOnPage": 0,
+   "leaks": [],
+   "coverage": 100,
+   "grade": [
+    4.8,
+    6.4
+   ]
+  },
+  {
+   "sheet": "h1-computing.txt",
+   "run": 2,
+   "model": "gemini-3.1-flash-lite",
+   "ms": 6551,
+   "worksheetOk": true,
+   "questionsExpected": 5,
+   "questionsFound": 5,
+   "invented": 0,
+   "factsTotal": 24,
+   "caughtByCheck": [
+    "text: 10"
+   ],
+   "lostOnPage": 0,
+   "leaks": [],
+   "coverage": 100,
+   "grade": [
+    4.8,
+    6.2
+   ]
+  },
+  {
+   "sheet": "h1-computing.txt",
+   "run": 3,
+   "model": "gemini-3.1-flash-lite",
+   "ms": 9019,
+   "worksheetOk": true,
+   "questionsExpected": 5,
+   "questionsFound": 5,
+   "invented": 0,
+   "factsTotal": 24,
+   "caughtByCheck": [
+    "text: 10, 2, binary, denary"
+   ],
+   "lostOnPage": 0,
+   "leaks": [],
+   "coverage": 100,
+   "grade": [
+    4.8,
+    6.4
+   ]
+  },
+  {
+   "sheet": "h2-biology-heart.txt",
+   "run": 1,
+   "model": "gemini-3.1-flash-lite",
+   "ms": 12395,
+   "worksheetOk": true,
+   "questionsExpected": 5,
+   "questionsFound": 5,
+   "invented": 0,
+   "factsTotal": 10,
+   "caughtByCheck": [],
+   "lostOnPage": 0,
+   "leaks": [],
+   "coverage": 100,
+   "grade": [
+    6.4,
+    5.2
+   ]
+  },
+  {
+   "sheet": "h2-biology-heart.txt",
+   "run": 2,
+   "model": "gemini-3.1-flash-lite",
+   "ms": 6013,
+   "worksheetOk": true,
+   "questionsExpected": 5,
+   "questionsFound": 5,
+   "invented": 0,
+   "factsTotal": 9,
+   "caughtByCheck": [
+    "text: deoxygenated"
+   ],
+   "lostOnPage": 0,
+   "leaks": [],
+   "coverage": 100,
+   "grade": [
+    6.4,
+    7.4
+   ]
+  },
+  {
+   "sheet": "h2-biology-heart.txt",
+   "run": 3,
+   "model": "gemini-3.1-flash-lite",
+   "ms": 7045,
+   "worksheetOk": true,
+   "questionsExpected": 5,
+   "questionsFound": 5,
+   "invented": 0,
+   "factsTotal": 9,
+   "caughtByCheck": [],
+   "lostOnPage": 0,
+   "leaks": [],
+   "coverage": 100,
+   "grade": [
+    6.4,
+    5.1
+   ]
+  },
+  {
+   "sheet": "h3-geometry.txt",
+   "run": 1,
+   "model": "gemini-3.1-flash-lite",
+   "ms": 43902,
+   "worksheetOk": true,
+   "questionsExpected": 5,
+   "questionsFound": 5,
+   "invented": 0,
+   "factsTotal": 8,
+   "caughtByCheck": [],
+   "lostOnPage": 0,
+   "leaks": [],
+   "coverage": 99,
+   "grade": [
+    3.6,
+    4.6
+   ]
+  },
+  {
+   "sheet": "h3-geometry.txt",
+   "run": 2,
+   "model": "gemini-3.1-flash-lite",
+   "ms": 4651,
+   "worksheetOk": true,
+   "questionsExpected": 5,
+   "questionsFound": 5,
+   "invented": 0,
+   "factsTotal": 7,
+   "caughtByCheck": [],
+   "lostOnPage": 0,
+   "leaks": [],
+   "coverage": 99,
+   "grade": [
+    3.6,
+    3.9
+   ]
+  },
+  {
+   "sheet": "h3-geometry.txt",
+   "run": 3,
+   "model": "gemini-3.1-flash-lite",
+   "ms": 2637,
+   "worksheetOk": true,
+   "questionsExpected": 5,
+   "questionsFound": 5,
+   "invented": 0,
+   "factsTotal": 7,
+   "caughtByCheck": [],
+   "lostOnPage": 0,
+   "leaks": [],
+   "coverage": 99,
+   "grade": [
+    3.6,
+    3.9
+   ]
+  },
+  {
+   "sheet": "h4-notice.txt",
+   "run": 1,
+   "model": "gemini-3.1-flash-lite",
+   "ms": 2653,
+   "worksheetOk": true,
+   "questionsExpected": 0,
+   "questionsFound": 0,
+   "invented": 0,
+   "factsTotal": 0,
+   "caughtByCheck": [],
+   "lostOnPage": 0,
+   "leaks": [],
+   "coverage": 0,
+   "grade": [
+    null,
+    null
+   ]
+  },
+  {
+   "sheet": "h4-notice.txt",
+   "run": 2,
+   "model": "gemini-3.1-flash-lite",
+   "ms": 986,
+   "worksheetOk": true,
+   "questionsExpected": 0,
+   "questionsFound": 0,
+   "invented": 0,
+   "factsTotal": 0,
+   "caughtByCheck": [],
+   "lostOnPage": 0,
+   "leaks": [],
+   "coverage": 0,
+   "grade": [
+    null,
+    null
+   ]
+  },
+  {
+   "sheet": "h4-notice.txt",
+   "run": 3,
+   "model": "gemini-3.1-flash-lite",
+   "ms": 4147,
+   "worksheetOk": true,
+   "questionsExpected": 0,
+   "questionsFound": 0,
+   "invented": 0,
+   "factsTotal": 0,
+   "caughtByCheck": [],
+   "lostOnPage": 0,
+   "leaks": [],
+   "coverage": 0,
+   "grade": [
+    null,
+    null
+   ]
+  }
+ ]
+}

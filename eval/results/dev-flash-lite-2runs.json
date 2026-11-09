@@ -1,0 +1,257 @@
+{
+ "summary": {
+  "runs": 12,
+  "worksheetDetection": "12/12",
+  "questions": "54/54",
+  "invented": 0,
+  "facts": 106,
+  "caughtByCheck": 7,
+  "lostOnPage": 0,
+  "leaks": 0,
+  "medianMs": 4664,
+  "gradeBefore": 7.6,
+  "gradeAfter": 5.7
+ },
+ "rows": [
+  {
+   "sheet": "01-maths-fractions.txt",
+   "run": 1,
+   "model": "gemini-3.1-flash-lite",
+   "ms": 3593,
+   "worksheetOk": true,
+   "questionsExpected": 7,
+   "questionsFound": 7,
+   "invented": 0,
+   "factsTotal": 21,
+   "caughtByCheck": [
+    "Challenge: reduced"
+   ],
+   "lostOnPage": 0,
+   "leaks": [],
+   "coverage": 98,
+   "grade": [
+    5.6,
+    3.9
+   ]
+  },
+  {
+   "sheet": "01-maths-fractions.txt",
+   "run": 2,
+   "model": "gemini-3.1-flash-lite",
+   "ms": 4664,
+   "worksheetOk": true,
+   "questionsExpected": 7,
+   "questionsFound": 7,
+   "invented": 0,
+   "factsTotal": 23,
+   "caughtByCheck": [
+    "note: Numerator, Denominator",
+    "Challenge: Reduced, Sale price"
+   ],
+   "lostOnPage": 0,
+   "leaks": [],
+   "coverage": 93,
+   "grade": [
+    5.6,
+    4.6
+   ]
+  },
+  {
+   "sheet": "02-history-trade.txt",
+   "run": 1,
+   "model": "gemini-3.1-flash-lite",
+   "ms": 13424,
+   "worksheetOk": true,
+   "questionsExpected": 4,
+   "questionsFound": 4,
+   "invented": 0,
+   "factsTotal": 9,
+   "caughtByCheck": [],
+   "lostOnPage": 0,
+   "leaks": [],
+   "coverage": 93,
+   "grade": [
+    11.5,
+    6.6
+   ]
+  },
+  {
+   "sheet": "02-history-trade.txt",
+   "run": 2,
+   "model": "gemini-3.1-flash-lite",
+   "ms": 2682,
+   "worksheetOk": true,
+   "questionsExpected": 4,
+   "questionsFound": 4,
+   "invented": 0,
+   "factsTotal": 9,
+   "caughtByCheck": [],
+   "lostOnPage": 0,
+   "leaks": [],
+   "coverage": 93,
+   "grade": [
+    11.5,
+    5.6
+   ]
+  },
+  {
+   "sheet": "03-english-grammar.txt",
+   "run": 1,
+   "model": "gemini-3.1-flash-lite",
+   "ms": 4624,
+   "worksheetOk": true,
+   "questionsExpected": 6,
+   "questionsFound": 6,
+   "invented": 0,
+   "factsTotal": 2,
+   "caughtByCheck": [],
+   "lostOnPage": 0,
+   "leaks": [],
+   "coverage": 100,
+   "grade": [
+    4.6,
+    3.5
+   ]
+  },
+  {
+   "sheet": "03-english-grammar.txt",
+   "run": 2,
+   "model": "gemini-3.1-flash-lite",
+   "ms": 4427,
+   "worksheetOk": true,
+   "questionsExpected": 6,
+   "questionsFound": 6,
+   "invented": 0,
+   "factsTotal": 2,
+   "caughtByCheck": [],
+   "lostOnPage": 0,
+   "leaks": [],
+   "coverage": 100,
+   "grade": [
+    4.6,
+    3.2
+   ]
+  },
+  {
+   "sheet": "04-geography-climate.txt",
+   "run": 1,
+   "model": "gemini-3.1-flash-lite",
+   "ms": 8978,
+   "worksheetOk": true,
+   "questionsExpected": 5,
+   "questionsFound": 5,
+   "invented": 0,
+   "factsTotal": 12,
+   "caughtByCheck": [
+    "text: Diurnal, Transpiration",
+    "1: Precipitation"
+   ],
+   "lostOnPage": 0,
+   "leaks": [],
+   "coverage": 100,
+   "grade": [
+    10.8,
+    12.1
+   ]
+  },
+  {
+   "sheet": "04-geography-climate.txt",
+   "run": 2,
+   "model": "gemini-3.1-flash-lite",
+   "ms": 15845,
+   "worksheetOk": true,
+   "questionsExpected": 5,
+   "questionsFound": 5,
+   "invented": 0,
+   "factsTotal": 12,
+   "caughtByCheck": [
+    "2: diurnal"
+   ],
+   "lostOnPage": 0,
+   "leaks": [],
+   "coverage": 100,
+   "grade": [
+    10.8,
+    5.3
+   ]
+  },
+  {
+   "sheet": "05-chemistry-states.txt",
+   "run": 1,
+   "model": "gemini-3.1-flash-lite",
+   "ms": 4732,
+   "worksheetOk": true,
+   "questionsExpected": 5,
+   "questionsFound": 5,
+   "invented": 0,
+   "factsTotal": 8,
+   "caughtByCheck": [
+    "text: 3"
+   ],
+   "lostOnPage": 0,
+   "leaks": [],
+   "coverage": 100,
+   "grade": [
+    5.4,
+    6.8
+   ]
+  },
+  {
+   "sheet": "05-chemistry-states.txt",
+   "run": 2,
+   "model": "gemini-3.1-flash-lite",
+   "ms": 3100,
+   "worksheetOk": true,
+   "questionsExpected": 5,
+   "questionsFound": 5,
+   "invented": 0,
+   "factsTotal": 8,
+   "caughtByCheck": [],
+   "lostOnPage": 0,
+   "leaks": [],
+   "coverage": 100,
+   "grade": [
+    5.4,
+    5
+   ]
+  },
+  {
+   "sheet": "06-not-a-worksheet.txt",
+   "run": 1,
+   "model": "gemini-3.5-flash",
+   "ms": 122858,
+   "worksheetOk": true,
+   "questionsExpected": 0,
+   "questionsFound": 0,
+   "invented": 0,
+   "factsTotal": 0,
+   "caughtByCheck": [],
+   "lostOnPage": 0,
+   "leaks": [],
+   "coverage": 0,
+   "grade": [
+    null,
+    null
+   ]
+  },
+  {
+   "sheet": "06-not-a-worksheet.txt",
+   "run": 2,
+   "model": "gemini-3.1-flash-lite",
+   "ms": 1006,
+   "worksheetOk": true,
+   "questionsExpected": 0,
+   "questionsFound": 0,
+   "invented": 0,
+   "factsTotal": 0,
+   "caughtByCheck": [],
+   "lostOnPage": 0,
+   "leaks": [],
+   "coverage": 0,
+   "grade": [
+    null,
+    null
+   ]
+  }
+ ]
+}
